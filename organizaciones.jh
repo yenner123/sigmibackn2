@@ -1,0 +1,107 @@
+entity Organizacion(adm_organizacion) {
+  id Integer
+  nit String required maxlength(50)
+  razonSocial String required maxlength(120)
+  sigla String maxlength(120) unique
+  razonSocial String required maxlength(120)
+  paginaWeb String maxlength(254)
+  email String maxlength(254)
+  direccion String maxlength(254)
+  telefono String maxlength(50)
+  fax String maxlength(50)
+  fechaCreacion Instant required
+  fechaActualizacion Instant
+  estado Integer required
+}
+
+entity Orden(adm_orden) {
+  id Integer required
+  nombre String required maxlength(50)
+  sigla String minlength(3) maxlength(3) unique
+  fechaCreacion Instant required
+  estado Integer required
+}
+
+entity Nivel(adm_nivel) {
+  id Integer required
+  nombre String required maxlength(50)
+  sigla String minlength(3) maxlength(3) unique
+  fechaCreacion Instant required
+  estado Integer required
+}
+
+entity SubOrden(adm_suborden) {
+  id Integer required
+  nombre String required maxlength(50)
+  sigla String minlength(3) maxlength(3) unique
+  fechaCreacion Instant required
+  estado Integer required
+}
+
+entity Sector(adm_sector) {
+  id Integer required
+  nombre String required maxlength(50)
+  sigla String minlength(3) maxlength(3) unique
+  fechaCreacion Instant required
+  estado Integer required
+}
+
+entity ClasificacionOrganica(adm_clasificacion_organica) {
+  id Integer required
+  nombre String required maxlength(50)
+  sigla String minlength(3) maxlength(3) unique
+  fechaCreacion Instant required
+  estado Integer required
+}
+
+entity NaturalezaJuridica(adm_naturaleza_juridica) {
+  id Integer required
+  nombre String required maxlength(50)
+  sigla String minlength(3) maxlength(3) unique
+  fechaCreacion Instant required
+  estado Integer required
+}
+
+entity Pais(adm_pais){
+  id Integer required
+  nombre String required maxlength(50)
+  codigo String required maxlength(20) unique
+  fechaCreacion Instant required
+  estado Integer required 	
+}
+
+entity Departamento(adm_departamento){
+  id Integer required
+  nombre String required maxlength(50)
+  codigo String required maxlength(20) unique
+  fechaCreacion Instant required
+  estado Integer required
+}
+
+entity Municipio(adm_municipio){
+  id Integer required
+  nombre String required maxlength(50)
+  codigo String required maxlength(20) unique
+  fechaCreacion Instant required
+  estado Integer required
+}
+
+relationship ManyToOne {
+  Municipio{departamento required} to Departamento
+}
+relationship ManyToOne {
+  Departamento{pais required} to Pais
+}
+relationship ManyToOne {
+  Organizacion{municipio required} to Municipio,
+  Organizacion{naturalezaJuridica} to NaturalezaJuridica,
+  Organizacion{clasificacionOrganica} to ClasificacionOrganica,
+  Organizacion{nivel required} to Nivel,
+  Organizacion{orden} to Orden,
+  Organizacion{subOrden} to SubOrden,
+  Organizacion{sector} to Sector,
+  Organizacion{padre} to Organizacion
+}
+
+readOnly *
+service Organizacion with serviceClass
