@@ -1,0 +1,60 @@
+{
+  "name": "Departamento",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "codigo",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength",
+        "unique"
+      ],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "fechaCreacion",
+      "fieldType": "Instant",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pais",
+      "otherEntityRelationshipName": "departamento",
+      "relationshipValidateRules": "required",
+      "relationshipName": "pais",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210303123841",
+  "entityTableName": "adm_departamento",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": true,
+  "embedded": false,
+  "clientRootFolder": "sigmibackn2",
+  "applications": "*",
+  "microserviceName": "sigmibackn2"
+}

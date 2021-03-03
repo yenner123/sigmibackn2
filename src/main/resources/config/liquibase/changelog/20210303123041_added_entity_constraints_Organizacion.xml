@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Organizacion.
+    -->
+    <changeSet id="20210303123041-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="municipio_id"
+                                 baseTableName="adm_organizacion"
+                                 constraintName="fk_adm_organizacion_municipio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adm_municipio"/>
+
+        <addForeignKeyConstraint baseColumnNames="naturaleza_juridica_id"
+                                 baseTableName="adm_organizacion"
+                                 constraintName="fk_adm_organizacion_naturaleza_juridica_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adm_naturaleza_juridica"/>
+
+        <addForeignKeyConstraint baseColumnNames="clasificacion_organica_id"
+                                 baseTableName="adm_organizacion"
+                                 constraintName="fk_adm_organizacion_clasificacion_organica_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adm_clasificacion_organica"/>
+
+        <addForeignKeyConstraint baseColumnNames="nivel_id"
+                                 baseTableName="adm_organizacion"
+                                 constraintName="fk_adm_organizacion_nivel_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adm_nivel"/>
+
+        <addForeignKeyConstraint baseColumnNames="orden_id"
+                                 baseTableName="adm_organizacion"
+                                 constraintName="fk_adm_organizacion_orden_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adm_orden"/>
+
+        <addForeignKeyConstraint baseColumnNames="sub_orden_id"
+                                 baseTableName="adm_organizacion"
+                                 constraintName="fk_adm_organizacion_sub_orden_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adm_suborden"/>
+
+        <addForeignKeyConstraint baseColumnNames="sector_id"
+                                 baseTableName="adm_organizacion"
+                                 constraintName="fk_adm_organizacion_sector_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adm_sector"/>
+
+        <addForeignKeyConstraint baseColumnNames="padre_id"
+                                 baseTableName="adm_organizacion"
+                                 constraintName="fk_adm_organizacion_padre_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adm_organizacion"/>
+
+    </changeSet>
+</databaseChangeLog>

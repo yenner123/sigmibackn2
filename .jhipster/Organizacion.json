@@ -1,0 +1,162 @@
+{
+  "name": "Organizacion",
+  "fields": [
+    {
+      "fieldName": "nit",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "razonSocial",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "120"
+    },
+    {
+      "fieldName": "sigla",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "unique"
+      ],
+      "fieldValidateRulesMaxlength": "120"
+    },
+    {
+      "fieldName": "paginaWeb",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "254"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "254"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "254"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "fax",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "fechaCreacion",
+      "fieldType": "Instant",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "fechaActualizacion",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "municipio",
+      "otherEntityRelationshipName": "organizacion",
+      "relationshipValidateRules": "required",
+      "relationshipName": "municipio",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "naturalezaJuridica",
+      "otherEntityRelationshipName": "organizacion",
+      "relationshipName": "naturalezaJuridica",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "clasificacionOrganica",
+      "otherEntityRelationshipName": "organizacion",
+      "relationshipName": "clasificacionOrganica",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "nivel",
+      "otherEntityRelationshipName": "organizacion",
+      "relationshipValidateRules": "required",
+      "relationshipName": "nivel",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "orden",
+      "otherEntityRelationshipName": "organizacion",
+      "relationshipName": "orden",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "subOrden",
+      "otherEntityRelationshipName": "organizacion",
+      "relationshipName": "subOrden",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sector",
+      "otherEntityRelationshipName": "organizacion",
+      "relationshipName": "sector",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "organizacion",
+      "otherEntityRelationshipName": "organizacion",
+      "relationshipName": "padre",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210303123041",
+  "entityTableName": "adm_organizacion",
+  "dto": "no",
+  "pagination": "no",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": true,
+  "embedded": false,
+  "clientRootFolder": "sigmibackn2",
+  "applications": "*",
+  "microserviceName": "sigmibackn2"
+}
