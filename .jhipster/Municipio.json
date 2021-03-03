@@ -1,0 +1,60 @@
+{
+  "name": "Municipio",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "codigo",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength",
+        "unique"
+      ],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "fechaCreacion",
+      "fieldType": "Instant",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "departamento",
+      "otherEntityRelationshipName": "municipio",
+      "relationshipValidateRules": "required",
+      "relationshipName": "departamento",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210303123941",
+  "entityTableName": "adm_municipio",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": true,
+  "embedded": false,
+  "clientRootFolder": "sigmibackn2",
+  "applications": "*",
+  "microserviceName": "sigmibackn2"
+}
